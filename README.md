@@ -85,7 +85,10 @@ SDDM 是 KDE 现代版默认登录管理器
 为应用程序创建一个`*.desktop文件`，示例如下
 
 ```ini
-# Desktop Entry 分是必须的内容Exec是要执行命令
+# Desktop Entry 这是必须的内容
+# Exec是要执行命令
+# Categories是类型分组
+# StartupWMClass是用于准确关联应用的窗口与启动器
 [Desktop Entry]
 Name=Visual Studio Code
 Comment=Code Editing. Redefined.
@@ -119,6 +122,13 @@ Exec=/usr/share/code/code --ozone-platform=x11 --new-window %F
 Icon=vscode
 
 ```
+
+StartupWMClass 必须正确设置，否则图标固定到Dock栏，在打开应用是会出现两个图标
+
+StartupWMClass 的获取可以打开终端，输入 `xprop | grep WM_CLASS` 此时鼠标指针会变成十字形，点击你要查询的应用程序窗口。
+
+`Wayland` 可能无法正常获取到，如果无法获取，就注销会话，登录界面选择并使用 `x11` 会话登录，获取后在切换回 `Wayland` 模式即可。
+
 
 ## 文件管理器
 
@@ -226,9 +236,10 @@ export XMODIFIERS=@im=ibus
 
 ## 我的配置备份
 
-**local.gz.tar** 这是用户级配置，解压到 `~/.local`
+**local.gz.tar** 这是用户级配置，解压到 `~/.local`，不含`*.desktop`
 
 **usr.gz.tar** 这是系统级配置，解压到 `/usr`，仅包含 `SDDM`
 
+**applications.gz.tar** 这是应用的`*.desktop`，可以放的 `/usr/share` 或 `~/.local/share`
 
 
