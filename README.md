@@ -220,9 +220,15 @@ export XMODIFIERS=@im=ibus
 
 **ApiPost**:  https://www.apipost.cn/ (ApiPost官方版)
 
+**remmina**: sudo apt install remmina (支持RDP远程桌面的工具)
+
+**qemu**: sudo apt install -y qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils virtinst virt-viewer virt-manager (KVM虚拟机，图形化管理工具)
 
 ## 我的配置备份
 
 **local.gz.tar** 这是用户级配置，解压到 `~/.local`
 
 **usr.gz.tar** 这是系统级配置，解压到 `/usr`，仅包含 `SDDM`
+
+
+
